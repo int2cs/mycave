@@ -1,0 +1,26 @@
+body {
+  padding-top: 72px;
+}
+main {
+  max-width: 1200px;
+  margin: auto;
+}
+#carouselExampleControls .jumbotron {
+  padding: 2em 10em;
+}
+.block {
+  max-width: 1500px;
+  margin: auto;
+}
+.winecard {
+  max-width: 450px;
+}
+.modal .form-group label {
+  margin: 0 !important;
+}
+.alert {
+  position: fixed;
+  top: 72px;
+  z-index: 100;
+  width: 100%;
+}
