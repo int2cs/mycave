@@ -13,7 +13,7 @@ main {
   margin: auto;
 }
 .winecard {
-  max-width: 450px;
+  width: 300px;
 }
 .modal .form-group label {
   margin: 0 !important;

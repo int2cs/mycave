@@ -73,7 +73,7 @@ if (!isset($_POST['action'])) {
 
       echo json_encode($donnee);
       break;
-    case 'addWine':
+    case 'wineAdd':
       $donnee = array_map('inpValidate', $_POST);
 
       // $_FILE
@@ -99,32 +99,8 @@ if (!isset($_POST['action'])) {
 
       switch ($_FILES['formFile']['error']) {
         case 4:
-          var_dump(json_encode($_FILES));
-          die;
-          $filename = 'Mona.png';
-          $location = '../assets/img/uploads/' . $filename;
-
-          $file_ext = pathinfo($location, PATHINFO_EXTENSION);
-          $file_ext = strtolower($file_ext);
-
-          $valid_ext = array("jpg", "png", "jpeg");
-
-          if (in_array($file_ext, $valid_ext)) {
-            if (!file_exists('../assets/img/uploads')) {
-              if (!mkdir('../assets/img/uploads', 0777)) {
-                $state->nbrError++;
-                array_push($state->msg, '[code 52687] Veuillez contacter l\'administrateur...');
-              }
-            }
-
-            if (!move_uploaded_file($_FILES['formFile']['tmp_name'], $location)) {
-              $state->nbrError++;
-              array_push($state->msg, 'Erreur lors de l\'uplaod du fichier');
-            }
-          } else {
-            $state->nbrError++;
-            array_push($state->msg, 'Extention du fichier non accepté. (.jpg/.jpeg/.png uniquement)');
-          };
+          $filename = 'default.jpg';
+          array_push($state->msg, 'Upload effectué avec success');
           break;
         case 3:
           $state->nbrError++;
@@ -184,6 +160,15 @@ if (!isset($_POST['action'])) {
         'picture' => $filename
       ]);
 
+      echo json_encode($state);
+      break;
+    case 'wineDelete':
+      if (!$bdd->query('DELETE FROM wines WHERE id = ' . $_POST['id'])) {
+        $state->nbrError++;
+        array_push($state->msg, 'Erreur lors de la suppression de la bouteille.');
+      } else {
+        $state->msg = 'Suppression effectué avec success';
+      }
       echo json_encode($state);
       break;
     default:

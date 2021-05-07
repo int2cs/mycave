@@ -11,10 +11,10 @@ formAddWine.addEventListener("submit", (e) => {
           console.log(res);
           res.msg.map((msg) => console.log(msg));
           msgInfo.innerHTML = `
-          <div class="alert alert-dismissible alert-success">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            ${res.msg}
-          </div>
+            <div class="alert alert-dismissible alert-success">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              ${res.msg}
+            </div>
           `;
           // setTimeout(function () {
           //   document.location.reload();
@@ -22,9 +22,7 @@ formAddWine.addEventListener("submit", (e) => {
         } else {
           msgInfo.innerHTML = `
         <div class="alert alert-dismissible alert-danger">
-            <button type="button" class="close" data-dismiss="alert">
-              &times;
-            </button>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
             ${res.msg}
           </div>
         `;
@@ -47,7 +45,7 @@ formAddWine.addEventListener("submit", (e) => {
 
   const file = document.querySelector("#formFile").files;
   let dataSend = new FormData(formAddWine);
-  dataSend.append("action", "addWine");
+  dataSend.append("action", "wineAdd");
   if (file.length > 0) {
     dataSend.append("file", file[0]);
   }
