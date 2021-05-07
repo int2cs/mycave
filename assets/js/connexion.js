@@ -15,16 +15,20 @@ if (formConnect) {
       if (xhr.readyState == XMLHttpRequest.DONE) {
         if (xhr.status == 200) {
           const res = JSON.parse(xhr.response);
+          console.log(res);
+          for (let i = 0; i < res.length - 2; i++) {
+            //Ici on démarre les sessionStorage
+          }
           if (res.nbrError === 0) {
             msgInfo.innerHTML = `
           <div class="alert alert-dismissible alert-success">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
-            ${res.msg}
+            ${res.msg[res.msg.length - 1]}
           </div>
           `;
-            setTimeout(function () {
-              document.location.reload();
-            }, 1000);
+            // setTimeout(function () {
+            //   document.location.reload();
+            // }, 1000);
           } else {
             msgInfo.innerHTML = `
         <div class="alert alert-dismissible alert-danger">

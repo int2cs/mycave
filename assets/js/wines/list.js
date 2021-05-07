@@ -22,7 +22,7 @@ xhr.onreadystatechange = () => {
               <li class="list-group-item">Cépages : <span class="text-muted">${row.cepages}</span></li>
             </ul>
             <div class="card-body">
-              <a href="#" class="card-link btn btn-outline-warning" data-id="${row.id}" id="btnEdit">Editer</a>
+              <button class="card-link btn btn-outline-warning" data-id="${row.id}" id="btnEdit">Editer</button>
               <button class="card-link btn btn-outline-danger" data-id="${row.id}" id="btnDelete" onclick="deleteBottle(${row.id})">Supprimer</button>
             </div>
           </div>

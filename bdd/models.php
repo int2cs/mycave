@@ -30,33 +30,21 @@ if (!isset($_POST['action'])) {
       if (empty($donnee)) {
         $state->nbrError++;
         array_push($state->msg, 'Cette adresse email n\'existe pas !');
-        // echo json_encode([
-        //   'connected' => false,
-        //   'msg' => 'Cette adresse email n\'existe pas !'
-        // ]);
       } elseif (!password_verify($pwd, $donnee['pwd'])) {
         $state->nbrError++;
         array_push($state->msg, 'Votre mot de passe est incorrecte !');
-        // echo json_encode([
-        //   'connected' => false,
-        //   'msg' => 'Votre mot de passe est incorrecte !'
-        // ]);
       } else {
-        $_SESSION['connected'] = true;
-        $_SESSION['id'] = $donnee['id'];
-        $_SESSION['fName'] = $donnee['firstname'];
-        $_SESSION['lName'] = $donnee['lastname'];
-        $_SESSION['nName'] = $donnee['nickname'];
-        // echo json_encode((object) [
-        //   'connected' => true,
-        //   'msg' => 'Vous êtes maintenant connecté !'
-        // ]);
+        array_push($state->msg, true); //Connected
+        array_push($state->msg, $donnee['id']);
+        array_push($state->msg, $donnee['firstname']);
+        array_push($state->msg, $donnee['lastname']);
+        array_push($state->msg, $donnee['nickname']);
       }
 
       if ($state->nbrError != 0)
         echo json_encode($state);
       else {
-        $state->msg = 'Vous êtes maintenant connecté !';
+        array_push($state->msg, 'Vous êtes maintenant connecté !');
         echo json_encode($state);
       }
       break;
