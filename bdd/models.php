@@ -34,11 +34,13 @@ if (!isset($_POST['action'])) {
         $state->nbrError++;
         array_push($state->msg, 'Votre mot de passe est incorrecte !');
       } else {
-        array_push($state->msg, true); //Connected
-        array_push($state->msg, $donnee['id']);
-        array_push($state->msg, $donnee['firstname']);
-        array_push($state->msg, $donnee['lastname']);
-        array_push($state->msg, $donnee['nickname']);
+        $state->msg = array(
+          'connected' => true,
+          'id' => $donnee['id'],
+          'firstname' => $donnee['firstname'],
+          'lastname' => $donnee['lastname'],
+          'nickname' => $donnee['nickname']
+        );
       }
 
       if ($state->nbrError != 0)

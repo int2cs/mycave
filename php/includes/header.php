@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -30,31 +29,9 @@ session_start();
         <li class="nav-item">
           <a class="nav-link" href="#">Qui sommes-nous ?</a>
         </li>
-        <?php if (isset($_SESSION['connected'])) { ?>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#" id="btnAddBottle" data-toggle="modal" data-target="#modalAddWine">Ajouter une bouteille</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </li>
-        <?php } ?>
+        <div class="adminMenu"></div>
       </ul>
-      <?php if (!isset($_SESSION['connected'])) { ?>
-        <form class="form-inline my-2 my-lg-0" id="formConnect">
-          <input class="form-control form-control-sm mr-sm-2" type="text" placeholder="Identifiant" id="idConnect" required>
-          <input class="form-control form-control-sm mr-sm-2" type="password" placeholder="Mot de passe" id="pwdConnect" required>
-          <button class="btn btn-secondary btn-sm my-2 mx-2 my-sm-0" type="submit">Connexion</button>
-        </form>
-        <!-- <button class="btn btn-secondary btn-sm my-2 mx-2 my-sm-0" type="submit">S'inscrire</button> -->
-      <?php } else {
-        echo $_SESSION['nName']; ?>
-        <button class="btn btn-danger btn-sm my-2 mx-2 my-sm-0" id="btnDisconnect">Déconnexion</button>
-      <?php } ?>
-
+      <div class="formConnecte"></div>
     </div>
   </nav>
 

@@ -9,9 +9,7 @@ require_once('./php/includes/header.php');
         <div class="jumbotron">
           <h1 class="display-3">Vins De Qualités !</h1>
           <p class="lead">Chez mycave, nous portons un très grand intérêt à la tradition !<br>
-
             C'est pourquoi le foulage et le pressurage est uniquement réalisé par nos femmes et nos gosses pendant que nous les hommes, sommes très occuper à goûter ce qui sort de nos cuves !<br>
-
             De ce fait, n'ayant plus rien à vendre, nous vous proposons des vins de tout horizons afin que vous dépensiez votre argent chez nous.</p>
           <hr class="my-4">
           <p>C'est la raison pour laquelle notre vin est de bien meilleure qualité que les autres !</p>
