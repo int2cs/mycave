@@ -8,17 +8,15 @@ formAddWine.addEventListener("submit", (e) => {
       if (xhr.status == 200) {
         const res = JSON.parse(xhr.response);
         if (res.nbrError == 0) {
-          console.log(res);
-          res.msg.map((msg) => console.log(msg));
           msgInfo.innerHTML = `
             <div class="alert alert-dismissible alert-success">
               <button type="button" class="close" data-dismiss="alert">&times;</button>
               ${res.msg}
             </div>
           `;
-          // setTimeout(function () {
-          //   document.location.reload();
-          // }, 1000);
+          setTimeout(function () {
+            document.location.reload();
+          }, 1000);
         } else {
           msgInfo.innerHTML = `
         <div class="alert alert-dismissible alert-danger">
@@ -26,9 +24,9 @@ formAddWine.addEventListener("submit", (e) => {
             ${res.msg}
           </div>
         `;
-          // setTimeout(function () {
-          //   document.location.reload();
-          // }, 1000);
+          setTimeout(function () {
+            document.location.reload();
+          }, 1000);
         }
       } else {
         msgInfo.innerHTML = `
@@ -46,6 +44,8 @@ formAddWine.addEventListener("submit", (e) => {
   const file = document.querySelector("#formFile").files;
   let dataSend = new FormData(formAddWine);
   dataSend.append("action", "wineAdd");
+  dataSend.append("action2", "new");
+  dataSend.append("token", sessionStorage.getItem("token"));
   if (file.length > 0) {
     dataSend.append("file", file[0]);
   }

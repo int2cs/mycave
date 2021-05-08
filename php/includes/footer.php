@@ -7,6 +7,7 @@
 <?php if (isset($_SESSION['connected'])) { ?>
   <script src="./assets/js/wines/add.js"></script>
   <script src="./assets/js/wines/delete.js"></script>
+  <script src="./assets/js/wines/edit.js"></script>
 <?php } ?>
 
 </body>

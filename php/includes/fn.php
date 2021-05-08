@@ -6,3 +6,9 @@ function inpValidate($donnees)
   $donnees = htmlspecialchars($donnees);
   return $donnees;
 }
+
+function creatToken()
+{
+  $bytes = random_bytes(12);
+  return bin2hex($bytes);
+}

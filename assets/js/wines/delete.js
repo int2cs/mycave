@@ -4,7 +4,6 @@ const deleteBottle = (id) => {
     if (xhr.readyState == XMLHttpRequest.DONE) {
       if (xhr.status == 200) {
         const res = JSON.parse(xhr.response);
-        console.log(res);
         if (res.nbrError === 0) {
           msgInfo.innerHTML = `
           <div class="alert alert-dismissible alert-success">
@@ -32,6 +31,7 @@ const deleteBottle = (id) => {
   let dataSend = new FormData();
   dataSend.append("action", "wineDelete");
   dataSend.append("id", id);
+  dataSend.append("token", sessionStorage.getItem("token"));
   xhr.open("POST", "./bdd/models.php", true);
   // xhr.setRequestHeader("Content-Type", "multipart/form-data");
   xhr.send(dataSend);

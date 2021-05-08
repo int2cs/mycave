@@ -15,7 +15,7 @@ if (formConnect) {
       if (xhr.readyState == XMLHttpRequest.DONE) {
         if (xhr.status == 200) {
           const res = JSON.parse(xhr.response);
-          Object.entries(res.msg).forEach(([key, value]) =>
+          Object.entries(res.session).forEach(([key, value]) =>
             sessionStorage.setItem(key, value)
           );
           if (res.nbrError === 0) {
@@ -59,6 +59,8 @@ if (formConnect) {
 
     let dataSend = new FormData(formConnect);
     dataSend.append("action", "connect");
+    //TODO Vérifier si les .append() sont nécessaire
+    // On passe formConnect en nouvelle instance de FormData, donc il ne devrait pas y avoir besoin de rajouter quoi que ce soit !
     dataSend.append("id", id.value);
     dataSend.append("pwd", pwd.value);
     xhr.open("POST", "./bdd/models.php", true);
@@ -74,6 +76,7 @@ if (btnDisconnect) {
     xhr.onreadystatechange = () => {
       if (xhr.readyState == XMLHttpRequest.DONE) {
         if (xhr.status == 200) {
+          sessionStorage.clear();
           const res = JSON.parse(xhr.response);
           msgInfo.innerHTML = `
           <div class="alert alert-dismissible alert-success">

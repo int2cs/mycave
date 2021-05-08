@@ -4,6 +4,7 @@ body {
 main {
   max-width: 1200px;
   margin: auto;
+  padding: 10px;
 }
 #carouselExampleControls .jumbotron {
   padding: 2em 10em;
@@ -15,6 +16,9 @@ main {
 .winecard {
   width: 300px;
 }
+.modal {
+  top: 85px;
+}
 .modal .form-group label {
   margin: 0 !important;
 }
@@ -23,4 +27,16 @@ main {
   top: 72px;
   z-index: 100;
   width: 100%;
+}
+.winecard .card-header {
+  font-size: 1.35rem;
+}
+.winecard .card-body:nth-child(2) {
+  padding: 0.75rem;
+}
+.winecard > .list-group {
+  padding: 0.5rem 0;
+}
+.winecard > .list-group .list-group-item {
+  padding: 0 1.25rem;
 }

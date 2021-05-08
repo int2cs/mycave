@@ -9,10 +9,6 @@ adminMenu.innerHTML = sessionStorage.getItem("connected")
   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
   <div class="dropdown-menu">
     <a class="dropdown-item" href="#" id="btnAddBottle" data-toggle="modal" data-target="#modalAddWine">Ajouter une bouteille</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Separated link</a>
   </div>
 </li>`
   : "";

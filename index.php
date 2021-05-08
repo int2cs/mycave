@@ -52,7 +52,7 @@ require_once('./php/includes/header.php');
   </div>
 
   <p class="text-warning">Dans le cadre de ma formation, l'exercice de créer un CRUD nous a été demandé.<br>
-    C'est donc en réponse cette demande que ce projet est nez (vous l'avez ? Est née, est nez... elle est bonne non ?).<br>
+    C'est donc en réponse cette demande que ce projet est nez (vous l'avez ? Est né, est nez... elle est bonne non ?).<br>
 
     Merci de juger mon travail sur les fonctionnalités et non sur le design... ou comme on dit dans le milieu: "Juge moi le fond mais pas la forme !"</p>
 
