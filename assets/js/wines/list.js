@@ -43,6 +43,7 @@ xhr.onreadystatechange = () => {
                     class="card-link btn btn-outline-danger"
                     data-id="${row.id}"
                     id="btnDelete"
+                    data-toggle="modal" data-target="#modalDeleteWine"
                     onclick="deleteBottle(${row.id})"
                   >
                     Supprimer

@@ -90,5 +90,26 @@ session_start();
         </div>
       </div>
     </div>
+
+
+
+    <div class="modal fade" id="modalDeleteWine" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ModalLabel">Supprimer</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <p class="p-3">Voulez-vous supprimer cette bouteille ?</p>
+          <div class="modal-footer">
+            <button class="btn btn-primary" id="validateBtnDelete" data-toggle="modal" data-target="#modalDeleteWine" data-id="">Supprimer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <div id="editModal"></div>
   </div>
