@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 07 mai 2021 à 18:21
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Généré le : Dim 09 mai 2021 à 09:56
+-- Version du serveur :  8.0.21
+-- Version de PHP : 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,12 +29,13 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `lastname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `nickname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `pwd` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `lastname` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `nickname` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `pwd` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -42,8 +43,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `nickname`, `email`, `pwd`) VALUES
-(1, 'Gobin', 'Gabriel', 'Int2cs', 'gabriel.gn87@gmail.com', '$2y$10$XoKTOyiSAiBr2GSds3orgeQXFV56FoId8aJwUQ.Yf3UL7ySwkijq.');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `nickname`, `email`, `pwd`, `token`) VALUES
+(1, 'Gobin', 'Gabriel', 'Int2cs', 'gabriel.gn87@gmail.com', '$2y$10$XoKTOyiSAiBr2GSds3orgeQXFV56FoId8aJwUQ.Yf3UL7ySwkijq.', 'f8d5edab27be');
 
 -- --------------------------------------------------------
 
@@ -53,16 +54,16 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `nickname`, `email`, `pwd`) 
 
 DROP TABLE IF EXISTS `wines`;
 CREATE TABLE IF NOT EXISTS `wines` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `millesime` int(11) NOT NULL,
-  `cepages` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `country` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `region` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `millesime` int NOT NULL,
+  `cepages` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `country` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `region` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `wines`
@@ -81,7 +82,7 @@ INSERT INTO `wines` (`id`, `name`, `millesime`, `cepages`, `country`, `region`, 
 (10, 'DOMAINE SERENE', 2009, 'Pinot Noir', 'USA', 'Oregon', 'Though subtle in its complexities, this wine is sure to please a wide range of enthusiasts. Notes of pomegranate will delight as the nutty finish completes the picture of a fine sipping experience.\r\n', 'domaine_serene.jpg\r\n'),
 (11, 'BODEGA LURTON', 2011, 'Pinot Gris', 'Argentina', 'Mendoza', 'Solid notes of black currant blended with a light citrus make this wine an easy pour for varied palates.\r\n', 'bodega_lurton.jpg\r\n'),
 (12, 'LES MORIZOTTES', 2009, 'Chardonnay', 'France', 'Bourgogne', '\"Breaking the mold of the classics, this offering will surprise and undoubtedly get tongues wagging with the hints of coffee and tobacco in\r\nperfect alignment with more traditional notes. Breaking the mold of the classics, this offering will surprise and\r\nundoubtedly get tongues wagging with the hints of coffee and tobacco in\r\nperfect alignment with more traditional notes. Sure to please the late-night crowd with the slight jolt of adrenaline it brings.\"\r\n', 'morizottes.jpg'),
-(43, 'Chateau Petrus', 1996, 'Merlot', 'France', 'Dans le coin, pas trop loin', 'Le domaine Petrus (qui ne possÃ¨de pas de chÃ¢teau) tire son nom du lieu-dit sur lequel sont installÃ©es ses terres. Ce lieu aurait Ã©tÃ© nommÃ© aprÃ¨s Saint Pierre (Petrus en latin), qui est reprÃ©sentÃ© tenant les clÃ©s du paradis sur l\'Ã©tiquette des vins Petrus.\r\n\r\nAccoler la dÃ©nomination Â« ChÃ¢teau Â» devant le nom Â« Petrus Â», Ã  l\'instar de nombreux grands crus, est en quelque sorte inexact puisqu\'il n\'y a pas de chÃ¢teau Ã©rigÃ© dans le domaine. Un chai, reconstituÃ© rÃ©cemment, marque simplement la prÃ©sence du cru de Petrus.', 'default.jpg');
+(43, 'Chateau Petrus', 1996, 'Merlot', 'France', 'Dans le coin, pas trop loin', 'Petrus est un vin français d’appellation d’origine contrôlée (AOC) de la région viticole de Pomerol près de Bordeaux, dont il a l\'appellation. Bien que les vins de la commune de Pomerol ne fassent pas partie de la classification officielle des vins de Bordeaux, Petrus est considéré comme un des plus grands bordeaux au même titre que des grands crus classés du Médoc tels que Château Latour, Château Lafite-Rothschild, Château Mouton Rothschild, Château Margaux, ou un Pessac-Léognan du Château Haut-Brion et des vins de Saint-Émilion comme Château Angélus, Château Ausone, Château Cheval Blanc.', 'f33afe5250ce36e96144d0c9217a91f792e2ddbdpetrus-1071361.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
