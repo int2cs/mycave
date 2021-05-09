@@ -89,9 +89,9 @@ const editBottle = (id) => {
               ${res.msg}
             </div>
             `;
-            // setTimeout(function () {
-            //   document.location.reload();
-            // }, 1000);
+            setTimeout(function () {
+              document.location.reload();
+            }, 1000);
           } else {
             msgInfo.innerHTML = `
           <div class="alert alert-dismissible alert-danger">

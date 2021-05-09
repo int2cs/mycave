@@ -142,12 +142,7 @@ if (!isset($_POST['action'])) {
                     $state->nbr++;
                     array_push($state->msg, '[code 52687] Veuillez contacter l\'administrateur...');
                   }
-                // if (move_uploaded_file($_FILES['formFile']['tmp_name'], $location)) {
-                //   array_push($state->msg, 'Upload effectué avec succès');
-                // } else {
-                //   $state->nbrError++;
-                //   array_push($state->msg, 'Erreur lors de l\'uplaod du fichier');
-                // }
+
                 if (!move_uploaded_file($_FILES['formFile']['tmp_name'], $location)) {
                   $state->nbrError++;
                   array_push($state->msg, 'Erreur lors de l\'uplaod du fichier');
