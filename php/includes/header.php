@@ -66,7 +66,7 @@ session_start();
               </div>
               <div class="form-group">
                 <label class="col-form-label col-form-label-sm mt-4" for="millesime">Millésime</label>
-                <input type="number" class="form-control form-control-sm" placeholder="2005" id="millesime" name="millesime" required>
+                <input type="number" class="form-control form-control-sm" placeholder="2005" id="millesime" name="millesime" min="1900" max="<?php echo date("Y"); ?>" required>
               </div>
               <div class="form-group">
                 <label class="col-form-label col-form-label-sm mt-4" for="cepage">Cépages</label>
