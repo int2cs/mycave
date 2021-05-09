@@ -13,11 +13,11 @@ adminMenu.innerHTML = sessionStorage.getItem("connected")
 </li>`
   : "";
 
-const formConnecte = document.querySelector(".formConnecte");
-formConnecte.innerHTML = !sessionStorage.getItem("connected")
+const menuFormConnect = document.querySelector(".menuFormConnect");
+menuFormConnect.innerHTML = !sessionStorage.getItem("connected")
   ? `<form class="form-inline my-2 my-lg-0" id="formConnect">
-      <input class="form-control form-control-sm mr-sm-2" type="text" placeholder="Identifiant" id="idConnect" required>
-      <input class="form-control form-control-sm mr-sm-2" type="password" placeholder="Mot de passe" id="pwdConnect" required>
+      <input class="form-control form-control-sm mr-sm-2" type="text" placeholder="Identifiant" id="idConnect" name="id" required>
+      <input class="form-control form-control-sm mr-sm-2" type="password" placeholder="Mot de passe" id="pwdConnect" name="pwd" required>
       <button class="btn btn-secondary btn-sm my-2 mx-2 my-sm-0" type="submit">Connexion</button>
     </form>`
   : `${sessionStorage.getItem(

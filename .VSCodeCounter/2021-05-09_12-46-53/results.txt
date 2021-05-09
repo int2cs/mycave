@@ -1,0 +1,49 @@
+Date : 2021-05-09 12:46:53
+Directory : c:\wamp64\www\mycave
+Total : 15 files,  801 codes, 68 comments, 82 blanks, all 951 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |          6 |        369 |         10 |         25 |        404 |
+| PHP        |          6 |        338 |         23 |         40 |        401 |
+| SQL        |          1 |         50 |         25 |         16 |         91 |
+| CSS        |          2 |         44 |         10 |          1 |         55 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                              | files      | code       | comment    | blank      | total      |
++---------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                 |         15 |        801 |         68 |         82 |        951 |
+| assets                                            |          8 |        413 |         20 |         26 |        459 |
+| assets\css                                        |          2 |         44 |         10 |          1 |         55 |
+| assets\js                                         |          6 |        369 |         10 |         25 |        404 |
+| assets\js\wines                                   |          4 |        262 |          5 |         14 |        281 |
+| bdd                                               |          1 |        158 |         23 |         21 |        202 |
+| php                                               |          3 |        111 |          0 |         13 |        124 |
+| php\includes                                      |          3 |        111 |          0 |         13 |        124 |
++---------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                          | language   | code       | comment    | blank      | total      |
++---------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\wamp64\www\mycave\assets\css\bootstrap.min.css | CSS        |          2 |         10 |          0 |         12 |
+| c:\wamp64\www\mycave\assets\css\style.css         | CSS        |         42 |          0 |          1 |         43 |
+| c:\wamp64\www\mycave\assets\js\app.js             | JavaScript |         23 |          0 |          3 |         26 |
+| c:\wamp64\www\mycave\assets\js\connexion.js       | JavaScript |         84 |          5 |          8 |         97 |
+| c:\wamp64\www\mycave\assets\js\wines\add.js       | JavaScript |         52 |          1 |          3 |         56 |
+| c:\wamp64\www\mycave\assets\js\wines\delete.js    | JavaScript |         36 |          1 |          2 |         39 |
+| c:\wamp64\www\mycave\assets\js\wines\edit.js      | JavaScript |        113 |          2 |          5 |        120 |
+| c:\wamp64\www\mycave\assets\js\wines\list.js      | JavaScript |         61 |          1 |          4 |         66 |
+| c:\wamp64\www\mycave\bdd\models.php               | PHP        |        158 |         23 |         21 |        202 |
+| c:\wamp64\www\mycave\index.php                    | PHP        |         58 |          0 |          5 |         63 |
+| c:\wamp64\www\mycave\list.php                     | PHP        |         11 |          0 |          1 |         12 |
+| c:\wamp64\www\mycave\mycave.sql                   | SQL        |         50 |         25 |         16 |         91 |
+| c:\wamp64\www\mycave\php\includes\fn.php          | PHP        |         13 |          0 |          2 |         15 |
+| c:\wamp64\www\mycave\php\includes\footer.php      | PHP        |         11 |          0 |          4 |         15 |
+| c:\wamp64\www\mycave\php\includes\header.php      | PHP        |         87 |          0 |          7 |         94 |
+| Total                                             |            |        801 |         68 |         82 |        951 |
++---------------------------------------------------+------------+------------+------------+------------+------------+

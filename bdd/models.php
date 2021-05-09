@@ -29,7 +29,7 @@ if (!isset($_POST['action'])) {
       $donnee = $req->fetch(PDO::FETCH_ASSOC);
       if (empty($donnee)) {
         $state->nbrError++;
-        array_push($state->msg, 'Cette adresse email n\'existe pas !');
+        $state->msg = 'Cette adresse email n\'existe pas !';
       } elseif (!password_verify($pwd, $donnee['pwd'])) {
         $state->nbrError++;
         array_push($state->msg, 'Votre mot de passe est incorrecte !');
@@ -177,9 +177,7 @@ if (!isset($_POST['action'])) {
         echo json_encode($state);
       }
       break;
-    case 'wineEdit':
-      // Edition de bouteille
-      break;
+
     case 'wineDelete':
       if (!isset($_SESSION['connected']) || $_SESSION['connected'] === false || $_SESSION['token'] != $_POST['token']) {
         $state->nbrError++;

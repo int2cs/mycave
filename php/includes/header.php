@@ -31,7 +31,7 @@ session_start();
         </li>
         <div class="adminMenu"></div>
       </ul>
-      <div class="formConnecte"></div>
+      <div class="menuFormConnect"></div>
     </div>
   </nav>
 

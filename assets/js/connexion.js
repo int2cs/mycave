@@ -15,11 +15,12 @@ if (formConnect) {
       if (xhr.readyState == XMLHttpRequest.DONE) {
         if (xhr.status == 200) {
           const res = JSON.parse(xhr.response);
-          Object.entries(res.session).forEach(([key, value]) =>
-            sessionStorage.setItem(key, value)
-          );
           if (res.nbrError === 0) {
             //Connexion réussi
+            Object.entries(res.session).forEach(([key, value]) =>
+              sessionStorage.setItem(key, value)
+            );
+
             msgInfo.innerHTML = `
           <div class="alert alert-dismissible alert-success">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -39,9 +40,6 @@ if (formConnect) {
             ${res.msg}
           </div>
         `;
-            setTimeout(function () {
-              document.location.reload();
-            }, 1000);
           }
         } else {
           //erreur lors de la requête
@@ -59,10 +57,6 @@ if (formConnect) {
 
     let dataSend = new FormData(formConnect);
     dataSend.append("action", "connect");
-    //TODO Vérifier si les .append() sont nécessaire
-    // On passe formConnect en nouvelle instance de FormData, donc il ne devrait pas y avoir besoin de rajouter quoi que ce soit !
-    dataSend.append("id", id.value);
-    dataSend.append("pwd", pwd.value);
     xhr.open("POST", "./bdd/models.php", true);
     // xhr.setRequestHeader("Content-Type", "multipart/form-data");
     xhr.send(dataSend);
@@ -71,7 +65,6 @@ if (formConnect) {
 
 if (btnDisconnect) {
   btnDisconnect.addEventListener("click", () => {
-    console.log("click !");
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
       if (xhr.readyState == XMLHttpRequest.DONE) {
