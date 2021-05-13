@@ -8,7 +8,7 @@ function inpValidate($donnees)
   return $donnees;
 }
 
-function creatToken()
+function createToken()
 {
   $bytes = random_bytes(12);
   return bin2hex($bytes);
