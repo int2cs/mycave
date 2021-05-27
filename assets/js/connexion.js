@@ -14,6 +14,7 @@ if (formConnect) {
     xhr.onreadystatechange = () => {
       if (xhr.readyState == XMLHttpRequest.DONE) {
         if (xhr.status == 200) {
+          console.log(xhr.response);
           const res = JSON.parse(xhr.response);
           if (res.nbrError === 0) {
             //Connexion réussi

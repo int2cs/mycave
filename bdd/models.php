@@ -30,7 +30,7 @@ if (!isset($_POST['action'])) {
       if (empty($donnee)) {
         $state->nbrError++;
         $state->msg = 'Cette adresse email n\'existe pas !';
-      } elseif (!password_verify($pwd, $donnee['pwd'])) {
+      } elseif (!password_verify($pwd, $donnee['password'])) {
         $state->nbrError++;
         array_push($state->msg, 'Votre mot de passe est incorrecte !');
       } else {
@@ -42,7 +42,7 @@ if (!isset($_POST['action'])) {
           'id' => $donnee['id'],
           'firstname' => $donnee['firstname'],
           'lastname' => $donnee['lastname'],
-          'nickname' => $donnee['nickname'],
+          'nickname' => $donnee['username'],
           'token' => $donnee['token']
         );
       }
@@ -134,7 +134,7 @@ if (!isset($_POST['action'])) {
               $file_ext = pathinfo($location, PATHINFO_EXTENSION);
               $file_ext = strtolower($file_ext);
 
-              $valid_ext = array("jpg", "png", "jpeg");
+              $valid_ext = array("jpg", "png", "jpeg", "JPG", "PNG", "JPEG");
 
               if (in_array($file_ext, $valid_ext)) {
                 if (!file_exists('../assets/img/uploads'))
@@ -186,7 +186,7 @@ if (!isset($_POST['action'])) {
         echo json_encode($state);
         die;
       } else {
-        if (!$bdd->query('DELETE FROM wines WHERE id = ' . $_POST['id'])) {
+        if (!$bdd->query('DELETE FROM wines WHERE id = ' . inpValidate($_POST['id']))) {
           $state->nbrError++;
           array_push($state->msg, 'Erreur lors de la suppression de la bouteille.');
         } else {
