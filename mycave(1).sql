@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 09 mai 2021 à 09:56
+-- Généré le : mar. 01 juin 2021 à 12:10
 -- Version du serveur :  8.0.21
 -- Version de PHP : 7.4.9
 
@@ -24,6 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `doctrine_migration_versions`
+--
+
+DROP TABLE IF EXISTS `doctrine_migration_versions`;
+CREATE TABLE IF NOT EXISTS `doctrine_migration_versions` (
+  `version` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `executed_at` datetime DEFAULT NULL,
+  `execution_time` int DEFAULT NULL,
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `doctrine_migration_versions`
+--
+
+INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
+('DoctrineMigrations\\Version20210520143321', '2021-05-25 14:16:09', 172),
+('DoctrineMigrations\\Version20210525141538', '2021-05-25 14:16:09', 11),
+('DoctrineMigrations\\Version20210528102818', '2021-05-28 10:28:37', 737);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
@@ -32,19 +55,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
   `firstname` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `lastname` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `nickname` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `pwd` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `token` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `roles` json NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `nickname`, `email`, `pwd`, `token`) VALUES
-(1, 'Gobin', 'Gabriel', 'Int2cs', 'gabriel.gn87@gmail.com', '$2y$10$XoKTOyiSAiBr2GSds3orgeQXFV56FoId8aJwUQ.Yf3UL7ySwkijq.', 'f8d5edab27be');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `email`, `password`, `token`, `roles`) VALUES
+(1, 'Gobin', 'Gabriel', 'Int2cs', 'gabriel.gn87@gmail.com', '$2y$10$XoKTOyiSAiBr2GSds3orgeQXFV56FoId8aJwUQ.Yf3UL7ySwkijq.', 'f8d5edab27be', '{\"roles\": \"ROLE_ADMIN\"}'),
+(2, 'Conclu', 'Jean', 'JeanConclu', 'jeanconclu@gmail.com', '$2y$13$k4TVSvaQB/I4DL7pOGNF1.Ju3WDXCCil3qbCqVSxOqEm9UoZgoTNK', 'f8d5edab27be', '{\"roles\": \"ROLE_USER\"}');
 
 -- --------------------------------------------------------
 
@@ -63,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `wines` (
   `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `wines`
